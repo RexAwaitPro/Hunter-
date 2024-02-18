@@ -1,6 +1,6 @@
 requests
 bs4
-aiogram
+aiogram==2.25.2
 pyrogram
 tgcrypto
 pymongo
