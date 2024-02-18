@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from aiogram import *
 import time
 
-rex = Dispatcher(Bot('6196974586:AAFCl8xClMQpUVScL3CIpWC9DQ9yLawQsY8',parse_mode=types.ParseMode.HTML))
+rex = Dispatcher(Bot('6781425105:AAGMvbpSiVbESmtbol3V575XKCO4yusgBaQ',parse_mode=types.ParseMode.HTML))
 
 def cmdshead(dev):
     return rex.message_handler(commands=dev)
