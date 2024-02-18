@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from aiogram import *
 import time
 
-rex = Dispatcher(Bot('6781425105:AAGMvbpSiVbESmtbol3V575XKCO4yusgBaQ',parse_mode=types.ParseMode.HTML))
+rex = Dispatcher(Bot('6781425105:AAGMvbpSiVbESmtbol3V575XKCO4yusgBaQ',parse_mode='html'))
 
 def cmdshead(dev):
     return rex.message_handler(commands=dev)
@@ -106,7 +106,7 @@ async def start(msg):
 
 @cmdshead('lista')
 async def start(msg):
-    if msg['from']['id'] == 5416957433:
+    if msg['from']['id'] == 6411167257:
         with open('grupos.txt', mode='r+', encoding='utf-8') as archivo:
             x = archivo.readlines()
         ass = await msg.reply('<b>Hi señor Max. </b>')
@@ -129,7 +129,7 @@ async def start(msg):
 
 @cmdshead('aproved')
 async def start(message):
-    if 5416957433  == message['from']['id']:
+    if 6411167257  == message['from']['id']:
         idw = message.text[len('/aproved '):]
         with open('grupos.txt', 'a') as ile:
             ile.write(idw +'\n')
@@ -138,7 +138,7 @@ async def start(message):
        
 @cmdshead('reproved')
 async def start(message):
-    if 5416957433  == message['from']['id']:
+    if 6411167257  == message['from']['id']:
         idw = message.text[len('/reaproved '):]
         with open('grupos.txt', mode='r+', encoding='utf-8') as archivo:
             x = archivo.readlines()
@@ -156,7 +156,7 @@ async def start(message):
 
 @cmdshead('aprovedchat')
 async def start(message):
-    if 5416957433  == message['from']['id']:
+    if 6411167257  == message['from']['id']:
         idw = message.text[len('/aprovedchat '):]
         with open('grupos.txt', 'a') as ile:
             ile.write(idw +'\n')
@@ -166,7 +166,7 @@ async def start(message):
 
 @cmdshead('reprovedchat')
 async def start(message):
-    if 5416957433  == message['from']['id']:
+    if 6411167257  == message['from']['id']:
         idw = message.text[len('/reprovedchat '):]
         with open('grupos.txt', mode='r+', encoding='utf-8') as archivo:
             x = archivo.readlines()
@@ -184,7 +184,7 @@ async def start(message):
 
 @cmdshead('cmdsmax')
 async def start(msg):
-    if msg['from']['id'] == 5416957433:
+    if msg['from']['id'] == 6411167257:
         await msg.reply("""<b>[•] ⇾ Bloque de comandos  
         
 [•] ⇾ start
