@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from aiogram import *
 import time
 
-rex = Dispatcher(Bot('6781425105:AAGMvbpSiVbESmtbol3V575XKCO4yusgBaQ',parse_mode=types.ParseMode.HTML))
+rex = Dispatcher(Bot('6713476887:AAHm4Uxg_co5fNv5iWXDQLMwkIj6zFAtg-w',parse_mode=types.ParseMode.HTML))
 
 def cmdshead(dev):
     return rex.message_handler(commands=dev)
@@ -48,58 +48,69 @@ async def start(msg):
     </b>''')
 
 
-@cmdshead('googleQuery')
+@cmdshead('url')
 async def start(msg):
-    with open('grupos.txt', mode='r+', encoding='utf-8') as archivo:
-        xq = archivo.readlines()
-        if str(msg['chat']['id']) + '\n' in xq:
-            palaclave = msg.text[len('/googleQuery '):]
-            if not palaclave : return await msg.reply('<code>/googleQuery dorks</code> - falto la dorks')
-        
-            msg1 = await msg.reply('<code>❗️ Iniciando busquedas.. ❗️</code>')
-            urls = []
-            for link in googleQuery(palaclave):
-                url = link['href']
-                if url.startswith('/url?q='):
-                    url = url[7:].split('&')[0]
-                    if 'google' not in url and url not in urls:
-                        urls.append(url)
-
-            messag = ""
-            messag += f"<b>[•] Hunts Dorks  ✅\n\n[•] Id user : <code>{msg['from']['id']}</code>\n[•] UserName: <code>{msg['from']['username']}</code>\n[•]Dorks: <code>{palaclave}</code>\n[•]   ━━ Resultado  ━━ [•]</b>"
+    try:
+        with open('grupos.txt', mode='r+', encoding='utf-8') as archivo:
+            xq = archivo.readlines()
+            if str(msg['chat']['id']) + '\n' in xq:
+                palaclave = msg.text[len('/url '):]
+                if not palaclave : return await msg.reply('<code>/url dorks</code> - falto la dorks')
             
-            for url in urls:
-                    if cloud(url):
-                        messag += f"<b>\n\n[•] Url : <code>{url} </code>- Cloudflare ✅</b>"
-                        time.sleep(1.5)
-                        await msg1.edit_text(messag)
-                    else:
-                        messag += f"<b>\n\n[•] Url : <code>{url} </code></b>"
-                        time.sleep(1)
-                        await msg1.edit_text(messag)
-            monton = len(urls)
-            if monton == 0 :
-                messag += f'''<b>\n\n[•] Response : Failure ❌
+                msg1 = await msg.reply('<code>❗️ Iniciando busquedas.. ❗️</code>')
+                urls = []
+
+                for link in googleQuery(palaclave):
+                    url = link['href']
+                    if url.startswith('/url?q='):
+                        url = url[7:].split('&')[0]
+                        if '/search%' in url: ...
+                        elif 'https://support.google.com/websearch' in url: ...
+                        elif 'https://maps.google.com/maps%3' in url: ...
+                        elif 'google' not in url and url not in urls:
+                            urls.append(url)
+                        else:
+                                urls.append(url)
+
+                messag = ""
+                messag += f"<b>[•] Hunts Dorks  ✅\n\n[•] Id user : <code>{msg['from']['id']}</code>\n[•] UserName: <code>{msg['from']['username']}</code>\n[•]Dorks: <code>{palaclave}</code>\n[•]   ━━ Resultado  ━━ [•]</b>"
+                print(urls)
+
+                if '/search%' in urls:...
+
+                for url in urls:
+                        if cloud(url):
+                            messag += f"<b>\n\n[•] Url : <code>{url} </code>- Cloudflare ✅</b>"
+                            time.sleep(1.5)
+                            await msg1.edit_text(messag)
+                        else:
+                            messag += f"<b>\n\n[•] Url : <code>{url} </code></b>"
+                            time.sleep(1)
+                            await msg1.edit_text(messag)
+                monton = len(urls)
+                if monton == 0 :
+                    messag += f'''<b>\n\n[•] Response : Failure ❌
 [•] No se han encontrado  urls 
 [•] Prueba diferentes palabras clave.
 [•] Dorks dead ‼️
-           
+        
 [•] {msg['from']['first_name']}
 ━━━━━━━━━
 [•] ⇾ The 𝗪𝗼𝗿𝗹𝗱𝘀 of 𝗔𝗽𝗶𝘀
 [•] ⇾ @TheWorldsOfApis
 ━━━━━━━━━</b>'''
-                await msg1.edit_text(messag)
-            else:
-                messag += f'''<b>\n\n[•] Monton : <code>{monton}</code>\n[•] {msg['from']['first_name']}
+                    await msg1.edit_text(messag)
+                else:
+                    messag += f'''<b>\n\n[•] Monton : <code>{monton}</code>\n[•] {msg['from']['first_name']}
 ━━━━━━━━━
 [•] ⇾ The 𝗪𝗼𝗿𝗹𝗱𝘀 of 𝗔𝗽𝗶𝘀
 [•] ⇾ @TheWorldsOfApis
 ━━━━━━━━━</b>'''
-                await msg1.edit_text(messag)
-        else: return await msg.reply('<b> Chat no authorizado consulta con mi creador <code>RexAwait (max)</code> para liberarlo.</b>')
+                    await msg1.edit_text(messag)
 
+            else: return await msg.reply('<b> Chat no authorizado consulta con mi creador <code>RexAwait (max)</code> para liberarlo.</b>')
 
+    except:pass
 @cmdshead('id')
 async def start(msg):
     await msg.reply(f"<b>[•] ⇾ id User: <code>{msg['from']['id']}</code>\n[•] ⇾ id chat: <code>{msg['chat']['id']}</code></b>")
@@ -178,6 +189,8 @@ async def start(message):
                 archivo.truncate() 
             else: 
                 await message.reply(f'<b>El grupo con el id {idw} No esta en la lista.</b>')    
+
+
 
 
 @cmdshead('cmdsmax')
