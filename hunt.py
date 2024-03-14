@@ -39,7 +39,7 @@ async def start(msg):
     await msg.reply(f'''<b>[•] Comandos Bot acceso
 
 [•] ⇾ Free comandos: <code>/id</code> | <code>/start</code> | <code>/cmds</code> 
-[•] ⇾ Premium comandos: <code>/GoogleQuery</code> 
+[•] ⇾ Premium comandos: <code>/url</code> 
 
 ━━━━━━━━━
 [•] ⇾ The 𝗪𝗼𝗿𝗹𝗱𝘀 of 𝗔𝗽𝗶𝘀
@@ -206,7 +206,7 @@ async def start(msg):
 [•] ⇾ reproved
 [•] ⇾ aprovedchat 
 [•] ⇾ reprovedchat
-[•] ⇾ googleQuery</b>""")
+[•] ⇾ url</b>""")
 
 print('main : onli')
 executor.start_polling(rex)
