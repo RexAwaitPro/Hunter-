@@ -74,7 +74,7 @@ async def start(msg):
 
                 messag = ""
                 messag += f"<b>[•] Hunts Dorks  ✅\n\n[•] Id user : <code>{msg['from']['id']}</code>\n[•] UserName: <code>{msg['from']['username']}</code>\n[•]Dorks: <code>{palaclave}</code>\n[•]   ━━ Resultado  ━━ [•]</b>"
-                print(urls)
+                
 
                 if '/search%' in urls:...
 
